@@ -50,7 +50,7 @@ public class SessionInterceptor implements HandlerInterceptor {
         }
 
         if(!hasRole && !isRoleEndpoint) {
-            response.sendRedirect("/role-select");
+            response.sendRedirect("/roles");
             return false;
         }
 

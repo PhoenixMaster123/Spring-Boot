@@ -29,10 +29,10 @@ public class Quest {
     private double xp;
 
     @Column(nullable = false)
-    private String bannerURL;
+    private String bannerUrl;
 
-    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private PlayerClass eligibleClass;
 
     @ManyToOne(optional = false)
@@ -52,5 +52,16 @@ public class Quest {
 
     @Column(nullable = false)
     private String updatedBy;
+
+    @PreUpdate
+    private void preUpdate() {
+        if (bannerUrl == null || bannerUrl.isBlank()) {
+            bannerUrl = "/images/default-banner.png";
+        }
+        if (updatedBy == null || updatedBy.isBlank()) {
+            updatedBy = "system";
+        }
+        updatedOn = LocalDateTime.now();
+    }
 }
 

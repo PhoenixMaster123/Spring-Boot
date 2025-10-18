@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Slf4j
 @Service
@@ -31,14 +32,19 @@ public class ItemService {
                 .name(createItemRequest.getName())
                 .type(createItemRequest.getType())
                 .xpBonusMultiplier(createItemRequest.getXpBonusMultiplier())
-                .iconURL(createItemRequest.getUrl())
+                .iconUrl(createItemRequest.getUrl())
                 .createdOn(LocalDateTime.now())
                 .updatedOn(LocalDateTime.now())
                 .createdBy(player.getNickname())
+                .updatedBy(player.getNickname())
                 .build();
 
         itemRepository.save(item);
 
         log.info("New item created: {}", item);
+    }
+
+    public Item getById(UUID itemId) {
+        return itemRepository.findById(itemId).orElseThrow(() -> new RuntimeException("Item not found"));
     }
 }

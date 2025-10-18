@@ -38,13 +38,13 @@ public class QuestMasterHomeResolver implements HomeResolver {
     @Override
     public Map<String, Object> getModelData(Player player) {
 
-        List<Player> allAdventures = playerService.getAllAdventures();
+        List<Player> adventurers = playerService.getAllAdventures();
 
         return Map.of(
-                "totalAdventures", allAdventures.size(),
+                "totalAdventurers", adventurers.size(),
                 "totalQuests", questService.getAllQuests().size(),
                 "totalItems", itemService.getAllItems().size(),
-                "adventures", allAdventures
+                "adventurers", adventurers
         );
     }
 }

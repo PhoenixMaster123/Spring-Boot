@@ -29,7 +29,7 @@ public class Item {
     private double xpBonusMultiplier;
 
     @Column(nullable = false, unique = true)
-    private String iconURL;
+    private String iconUrl;
 
     @Column(nullable = false)
     private LocalDateTime createdOn;

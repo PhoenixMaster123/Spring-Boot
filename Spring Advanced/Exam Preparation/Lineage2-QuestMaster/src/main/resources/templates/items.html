@@ -114,7 +114,7 @@
             <div class="box item-list-box">
                     <div th:each="item : ${items}" class="item-list">
                         <div th:unless="${items.isEmpty()}" class="item-row">
-                            <img th:src="${item.iconURL}" width="32" height="32" class="item-icon-list-of-items"/>
+                            <img th:src="${item.iconUrl}" width="32" height="32" class="item-icon-list-of-items"/>
                             <div class="item-info">
                                 <div class="item-name" th:text="${item.name}">Archangel Sword</div>
                                 <div class="item-attributes" th:text="${item.getTypeAndMultiplierFormatted()}">Weapon – x3.0 XP</div>

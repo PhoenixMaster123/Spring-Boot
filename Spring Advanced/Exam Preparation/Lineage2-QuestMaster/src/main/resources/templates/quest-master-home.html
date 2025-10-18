@@ -33,7 +33,7 @@
         <div class="stat-card">
             <img src="/images/adventurer-icon.jpeg" class="stat-icon"/>
             <div class="stat-label">Adventurers</div>
-            <div class="stat-value" th:text="${totalAdventures}">37</div>
+            <div class="stat-value" th:text="${totalAdventurers}">37</div>
         </div>
         <div class="stat-card">
             <img src="/images/br_cash_rune_of_exp_i00.png" class="stat-icon"/>
@@ -67,15 +67,14 @@
                 <tr th:each="adventurer : ${adventurers}">
                     <!--   CHOOSE CORRECT CLASS ICON BASED ON PLAYER'S CLASS  -->
                     <td><img th:if="${adventurer.playerClass.name() == 'MYSTIC_MUSE'}" src="/images/mystic-muse-icon.png" class="avatar-img"/></td>
-                    <td><img th:if="${adventurer.playerClass.name() == 'GHOSTHUNTER'}"src="/images/ghost-hunter-icon.png" class="avatar-img"/></td>
-                    <td><img th:if="${adventurer.playerClass.name() == 'DOOMBRINGER'}"src="/images/doombringer-icon.png" class="avatar-img"/></td>
-                    <td><img src="/images/mystic-muse-icon.png" class="avatar-img"/></td>
+                    <td><img th:if="${adventurer.playerClass.name() == 'GHOST_HUNTER'}" src="/images/ghost-hunter-icon.png" class="avatar-img"/></td>
+                    <td><img th:if="${adventurer.playerClass.name() == 'DOOMBRINGER'}" src="/images/doombringer-icon.png" class="avatar-img"/></td>
                     <td th:text="${adventurer.nickname}">Celesthia</td>
                     <td th:text="${adventurer.playerClass.getDisplayName()}">Mystic Muse</td>
                     <td th:text="${adventurer.getLevel() + ' Lvl'}">7 Lvl</td>
                     <td>
                         <div class="xp-bar">
-                            <!--  width: {progressPercent}%;                        -->
+                            <!--  width: {progressPercentage}%                          -->
                             <div class="fill" th:style="'width:' + ${adventurer.getProgress()} + '%'"></div>
                         </div>
                         <span class="xp-value" th:text="${adventurer.getProgress() + '%'}">85%</span>
